@@ -1,0 +1,399 @@
+/* Google Fonts Import */
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Open+Sans:wght@400;600&display=swap');
+
+/* --- Global Styles --- */
+:root {
+    /* Color Scheme: Zen & Flow */
+    --color-primary: #4CAF50; /* Calming Green */
+    --color-secondary: #FFC107; /* Warm Yellow/Gold */
+    --color-text: #333333; /* Soft Black */
+    --color-bg-light: #F5F5F5; /* Light Grey */
+    --color-bg-white: #FFFFFF; /* Pure White */
+    --color-footer-bg: #222222; /* Darker footer */
+    --color-footer-text: #E0E0E0; /* Lighter footer text */
+
+    /* Typography */
+    --font-heading: 'Lora', serif;
+    --font-body: 'Open Sans', sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-body);
+    line-height: 1.6;
+    color: var(--color-text);
+    background-color: var(--color-bg-light);
+    display: flex; /* For sticky footer or overall layout */
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: var(--color-bg-white);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    flex-grow: 1; /* Allows main content to expand */
+}
+
+h1, h2, h3 {
+    font-family: var(--font-heading);
+    color: var(--color-primary);
+    margin-bottom: 15px;
+}
+
+h1 { font-size: 2.8em; }
+h2 { font-size: 2.2em; }
+h3 { font-size: 1.8em; }
+
+p {
+    margin-bottom: 10px;
+}
+
+a {
+    color: var(--color-primary);
+    text-decoration: none;
+    transition: color 0.3s ease; /* Smooth transition for links */
+}
+
+a:hover {
+    color: var(--color-secondary);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block; /* Removes extra space below images */
+    border-radius: 5px;
+}
+
+/* --- Navigation Bar --- */
+.main-header {
+    background-color: var(--color-primary);
+    padding: 15px 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.logo {
+    font-family: var(--font-heading);
+    font-size: 1.8em;
+    font-weight: 700;
+    color: var(--color-bg-white);
+    letter-spacing: 1px;
+    transition: transform 0.3s ease; /* Animation on hover */
+}
+
+.logo:hover {
+    transform: scale(1.05); /* Slight zoom on hover */
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin-left: 25px;
+}
+
+.nav-links a {
+    color: var(--color-bg-white);
+    font-weight: 600;
+    font-size: 1.1em;
+    padding: 5px 0;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.nav-links a::after { /* Underline effect on hover */
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background-color: var(--color-secondary);
+    left: 0;
+    bottom: 0;
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after {
+    width: 100%;
+}
+
+.nav-links a:hover {
+    color: var(--color-secondary);
+}
+
+/* --- Buttons --- */
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: 600;
+    text-align: center;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+}
+
+.primary-btn {
+    background-color: var(--color-secondary);
+    color: var(--color-text);
+}
+
+.primary-btn:hover {
+    background-color: #e6b000; /* Slightly darker yellow */
+    transform: translateY(-2px); /* Slight lift effect */
+}
+
+.secondary-btn {
+    background-color: var(--color-primary);
+    color: var(--color-bg-white);
+    border: 1px solid var(--color-primary);
+}
+
+.secondary-btn:hover {
+    background-color: #3e8e41; /* Slightly darker green */
+    border-color: #3e8e41;
+    transform: translateY(-2px);
+}
+
+/* --- Home Page Specific --- */
+.home-hero {
+    min-height: calc(100vh - 120px); /* Adjust based on header/footer height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: linear-gradient(rgba(245, 245, 245, 0.7), rgba(245, 245, 245, 0.7)), url('../images/abstract-bg.jpg') no-repeat center center/cover;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+.hero-content {
+    max-width: 800px;
+    padding: 40px;
+    animation: fadeIn 1.5s ease-out; /* Simple fade-in animation */
+}
+
+.hero-content h1 {
+    font-size: 3.5em;
+    margin-bottom: 20px;
+    color: var(--color-text); /* Heading on home page to match text */
+}
+
+.highlight-text {
+    color: var(--color-primary);
+}
+
+.intro-message {
+    font-size: 1.5em;
+    margin-bottom: 30px;
+    color: var(--color-text);
+}
+
+/* --- About Page Specific --- */
+.about-section {
+    display: flex;
+    flex-direction: row; /* Default for desktop */
+    align-items: center;
+    gap: 40px;
+    padding: 30px;
+}
+
+.about-image {
+    position: relative;
+    flex: 0 0 300px; /* Fixed width for image container on desktop */
+    width: 300px;
+    height: 300px;
+    border-radius: 50%; /* Makes image circular */
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.5s ease;
+}
+
+.about-image:hover {
+    transform: scale(1.05); /* Zoom effect on hover */
+}
+
+.profile-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures image covers circular container */
+}
+
+.custom-graphic-overlay {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 100px; /* Size of your custom graphic */
+    height: 100px;
+    opacity: 0.8;
+    transition: opacity 0.5s ease;
+}
+
+.about-image:hover .custom-graphic-overlay {
+    opacity: 1; /* Reveal/brighten graphic on hover */
+}
+
+.svg-icon {
+    width: 100%;
+    height: 100%;
+}
+
+.about-text {
+    flex-grow: 1;
+}
+
+.about-text p {
+    font-size: 1.1em;
+    margin-bottom: 15px;
+}
+
+
+/* --- Portfolio Page Specific (Flexbox/Grid Example) --- */
+.portfolio-grid {
+    display: grid; /* Using CSS Grid for layout */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid */
+    gap: 30px;
+    padding: 30px;
+}
+
+.portfolio-grid h2 {
+    grid-column: 1 / -1; /* Make heading span all columns */
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.project-card {
+    background-color: var(--color-bg-white);
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Hover effect */
+    display: flex;
+    flex-direction: column;
+}
+
+.project-card:hover {
+    transform: translateY(-5px); /* Lift effect */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.project-image {
+    width: 100%;
+    height: 200px; /* Fixed height for consistent image size */
+    object-fit: cover; /* Ensures images fill space without distortion */
+}
+
+.project-card h3 {
+    margin: 15px 15px 10px;
+    color: var(--color-text);
+}
+
+.project-card p {
+    padding: 0 15px;
+    font-size: 0.95em;
+    color: #555;
+    flex-grow: 1; /* Allows description to take up available space */
+}
+
+.project-card .btn {
+    margin: 15px;
+}
+
+/* --- Footer --- */
+.main-footer {
+    background-color: var(--color-footer-bg);
+    color: var(--color-footer-text);
+    text-align: center;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+/* --- Custom Animations/Transitions --- */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Hover effect for buttons (already defined in .btn hover) */
+/* Underline effect for nav links (already defined in .nav-links a::after) */
+
+
+/* --- Responsive Design (Media Queries) --- */
+
+/* Mobile devices (up to 768px) */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        padding: 10px 0;
+    }
+
+    .nav-links {
+        margin-top: 10px;
+        flex-wrap: wrap; /* Allow nav links to wrap */
+        justify-content: center;
+    }
+
+    .nav-links li {
+        margin: 5px 10px;
+    }
+
+    .home-hero .hero-content h1 {
+        font-size: 2.5em;
+    }
+
+    .home-hero .intro-message {
+        font-size: 1.2em;
+    }
+
+    .about-section {
+        flex-direction: column; /* Stack image and text vertically */
+        text-align: center;
+    }
+
+    .about-image {
+        margin-bottom: 20px;
+    }
+
+    .portfolio-grid {
+        grid-template-columns: 1fr; /* Single column for mobile */
+        padding: 20px;
+    }
+
+    .container {
+        margin: 10px;
+        padding: 15px;
+    }
+}
+
+/* Tablet devices (769px to 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .navbar {
+        padding: 15px 30px;
+    }
+
+    .container {
+        padding: 30px;
+    }
+
+    .portfolio-grid {
+        grid-template-columns: repeat(2, 1fr); /* Two columns for tablets */
+    }
+}
